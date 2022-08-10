@@ -14,16 +14,12 @@ const PORT = 3001;
 app.get('/users', (_request: Request, response: Response) => {
   fs.promises.readFile('./users.json', 'utf-8')
     .then((data) => {
-
       const AllUsers = data
-      
       response.status(200).json(JSON.parse(AllUsers));
-
     })
 })
 
 app.post('/user', middlewareUserValidation, (request: Request, response: Response) => {
-  
   const userData: UserProps = {
     id: randomBytes(6).toString('hex'),
     ...request.body
