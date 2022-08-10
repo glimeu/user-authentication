@@ -9,7 +9,7 @@ export interface UserSignup {
 
 export const middlewareUserValidation = async (request: Request, response: Response, next: NextFunction) => {
   const data: UserSignup = request.body
-  
+  console.log(data)
   const validation = await validity(data);
   console.log(validation)
 

@@ -24,7 +24,6 @@ app.post('/user', middlewareUserValidation, (request: Request, response: Respons
     id: randomBytes(6).toString('hex'),
     ...request.body
   };
-
   saveUser(userData);
   response.status(200).json(userData)
 })
